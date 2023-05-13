@@ -1,5 +1,5 @@
 import 'package:appnedic/screens/quiz/page_colors.dart';
-import 'package:appnedic/screens/quiz/page_family.dart';
+import 'package:appnedic/screens/quiz/page_job.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -56,7 +56,7 @@ class _HomeState extends State<Home> {
                 InkWell(
                   onTap: () {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => pageAnimals()));
+                        MaterialPageRoute(builder: (context) => PageAnimals()));
                   },
                   child: Container(
                     decoration: BoxDecoration(
@@ -76,7 +76,7 @@ class _HomeState extends State<Home> {
                             padding: EdgeInsets.only(
                                 top: MediaQuery.of(context).size.height * 0.01),
                             child: Image.asset(
-                              'assets/images/animals.png',
+                              'assets/images/animals/animals.png',
                               width: 120,
                               height: 100,
                             )),
@@ -97,7 +97,7 @@ class _HomeState extends State<Home> {
                 InkWell(
                   onTap: () {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => pageBody()));
+                        MaterialPageRoute(builder: (context) => PageBody()));
                   },
                   child: Container(
                     decoration: BoxDecoration(
@@ -117,7 +117,7 @@ class _HomeState extends State<Home> {
                             padding: EdgeInsets.only(
                                 top: MediaQuery.of(context).size.height * 0.01),
                             child: Image.asset(
-                              'assets/images/body.png',
+                              'assets/images/body/body.png',
                               width: 120,
                               height: 100,
                             )),
@@ -138,7 +138,7 @@ class _HomeState extends State<Home> {
                 InkWell(
                   onTap: () {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => pageFamily()));
+                        MaterialPageRoute(builder: (context) => PageJob()));
                   },
                   child: Container(
                     decoration: BoxDecoration(
@@ -152,34 +152,38 @@ class _HomeState extends State<Home> {
                         ],
                       ),
                     ),
-                    child: Column(
-                      children: [
-                        Padding(
-                            padding: EdgeInsets.only(
-                                top: MediaQuery.of(context).size.height * 0.01),
-                            child: Image.asset(
-                              'assets/images/famil.png',
-                              width: 120,
-                              height: 100,
-                            )),
-                        Text('Family',
+                    child: Expanded(
+                      child: Column(
+                        children: [
+                          Padding(
+                              padding: EdgeInsets.only(
+                                  top: MediaQuery.of(context).size.height *
+                                      0.01),
+                              child: Image.asset(
+                                'assets/images/job/jobs.png',
+                                width: 120,
+                                height: 100,
+                              )),
+                          Text('Jobs',
+                              style: TextStyle(
+                                  fontSize: 20,
+                                  color: Color.fromARGB(255, 255, 255, 255),
+                                  fontWeight: FontWeight.bold)),
+                          Text(
+                            'คำศัพท์เกี่ยวกับอาชีพ',
                             style: TextStyle(
-                                fontSize: 20,
-                                color: Color.fromARGB(255, 255, 255, 255),
-                                fontWeight: FontWeight.bold)),
-                        Text(
-                          'คำศัพท์เกี่ยวกับครอบครัว',
-                          style: TextStyle(
-                              color: Colors.white, fontWeight: FontWeight.bold),
-                        )
-                      ],
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold),
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 ),
                 InkWell(
                   onTap: () {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => pageColors()));
+                        MaterialPageRoute(builder: (context) => PageColor()));
                   },
                   child: Container(
                     decoration: BoxDecoration(
@@ -199,7 +203,7 @@ class _HomeState extends State<Home> {
                             padding: EdgeInsets.only(
                                 top: MediaQuery.of(context).size.height * 0.01),
                             child: Image.asset(
-                              'assets/images/animals.png',
+                              'assets/images/color/color.png',
                               width: 120,
                               height: 100,
                             )),
@@ -235,11 +239,12 @@ class _HomeState extends State<Home> {
           Padding(
             padding: EdgeInsets.symmetric(
               horizontal: 20,
+              vertical: 5,
             ),
             child: InkWell(
               onTap: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => pageFamily()));
+                    MaterialPageRoute(builder: (context) => PageAnimals()));
               },
               child: Container(
                 height: 80,
@@ -272,7 +277,133 @@ class _HomeState extends State<Home> {
                 ),
               ),
             ),
-          )
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(
+              horizontal: 20,
+              vertical: 5,
+            ),
+            child: InkWell(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => PageColor()));
+              },
+              child: Container(
+                height: 80,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  gradient: LinearGradient(
+                      begin: Alignment.centerLeft,
+                      end: Alignment.centerRight,
+                      colors: [
+                        Color.fromARGB(255, 177, 159, 0),
+                        Color.fromARGB(255, 236, 247, 144),
+                      ]),
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Colors',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                        color: Colors.white,
+                      ),
+                    ),
+                    Text(
+                      '10 exams',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(
+              horizontal: 20,
+              vertical: 5,
+            ),
+            child: InkWell(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => PageJob()));
+              },
+              child: Container(
+                height: 80,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  gradient: LinearGradient(
+                      begin: Alignment.centerLeft,
+                      end: Alignment.centerRight,
+                      colors: [
+                        Color.fromARGB(255, 177, 159, 0),
+                        Color.fromARGB(255, 236, 247, 144),
+                      ]),
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Jobs',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                        color: Colors.white,
+                      ),
+                    ),
+                    Text(
+                      '10 exams',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(
+              horizontal: 20,
+              vertical: 5,
+            ),
+            child: InkWell(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => PageBody()));
+              },
+              child: Container(
+                height: 80,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  gradient: LinearGradient(
+                      begin: Alignment.centerLeft,
+                      end: Alignment.centerRight,
+                      colors: [
+                        Color.fromARGB(255, 177, 159, 0),
+                        Color.fromARGB(255, 236, 247, 144),
+                      ]),
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Body',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                        color: Colors.white,
+                      ),
+                    ),
+                    Text(
+                      '10 exams',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
         ],
       ),
     );

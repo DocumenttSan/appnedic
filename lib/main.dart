@@ -1,8 +1,13 @@
 import 'package:appnedic/screens/quiz/home.dart';
+import 'package:appnedic/screens/splashscreen.dart';
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyApp());
+Future main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await Future.delayed(const Duration(seconds: 10));
+
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -16,6 +21,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: const Color(0xff0874E6),
       ),
+      // home: SplashScreen(),
       home: Home(),
     );
   }
