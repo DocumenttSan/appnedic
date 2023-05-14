@@ -1,10 +1,10 @@
-import 'package:appnedic/screens/quiz/page_colors.dart';
-import 'package:appnedic/screens/quiz/page_job.dart';
+import 'package:appnedic/screens/page_colors.dart';
+import 'package:appnedic/screens/page_job.dart';
+import 'package:appnedic/screens/quiz/letter_quiz.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:appnedic/screens/quiz/page_animals.dart';
-import 'package:appnedic/screens/quiz/page_body.dart';
+import 'package:appnedic/screens/page_animals.dart';
+import 'package:appnedic/screens/page_body.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -244,7 +244,7 @@ class _HomeState extends State<Home> {
             child: InkWell(
               onTap: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => PageAnimals()));
+                    MaterialPageRoute(builder: (context) => LetterQuiz()));
               },
               child: Container(
                 height: 80,
@@ -258,20 +258,53 @@ class _HomeState extends State<Home> {
                         Color.fromARGB(255, 236, 247, 144),
                       ]),
                 ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                child: Row(
                   children: [
-                    Text(
-                      'Animals',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20,
-                        color: Colors.white,
+                    Padding(
+                      padding: const EdgeInsets.only(left: 8),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+                            width: 80,
+                            child: Image.asset(
+                              'assets/images/animals/animals.png',
+                              height: 50,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
-                    Text(
-                      '10 exams',
-                      style: TextStyle(color: Colors.white),
+                    Expanded(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'Animals',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20,
+                              color: Colors.white,
+                            ),
+                          ),
+                          Text(
+                            '10 exams',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(right: 8),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Image.asset(
+                            'assets/icons/playbutton.png',
+                            height: 50,
+                          )
+                        ],
+                      ),
                     ),
                   ],
                 ),
@@ -300,20 +333,53 @@ class _HomeState extends State<Home> {
                         Color.fromARGB(255, 236, 247, 144),
                       ]),
                 ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                child: Row(
                   children: [
-                    Text(
-                      'Colors',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20,
-                        color: Colors.white,
+                    Padding(
+                      padding: const EdgeInsets.only(left: 8),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+                            width: 80,
+                            child: Image.asset(
+                              'assets/images/color/color.png',
+                              height: 50,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
-                    Text(
-                      '10 exams',
-                      style: TextStyle(color: Colors.white),
+                    Expanded(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'Colors',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20,
+                              color: Colors.white,
+                            ),
+                          ),
+                          Text(
+                            '10 exams',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(right: 8),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Image.asset(
+                            'assets/icons/playbutton.png',
+                            height: 50,
+                          )
+                        ],
+                      ),
                     ),
                   ],
                 ),
@@ -342,20 +408,53 @@ class _HomeState extends State<Home> {
                         Color.fromARGB(255, 236, 247, 144),
                       ]),
                 ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                child: Row(
                   children: [
-                    Text(
-                      'Jobs',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20,
-                        color: Colors.white,
+                    Padding(
+                      padding: const EdgeInsets.only(left: 8),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+                            width: 80,
+                            child: Image.asset(
+                              'assets/images/job/jobs.png',
+                              height: 50,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
-                    Text(
-                      '10 exams',
-                      style: TextStyle(color: Colors.white),
+                    Expanded(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'Jobs',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20,
+                              color: Colors.white,
+                            ),
+                          ),
+                          Text(
+                            '10 exams',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(right: 8),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Image.asset(
+                            'assets/icons/playbutton.png',
+                            height: 50,
+                          )
+                        ],
+                      ),
                     ),
                   ],
                 ),
@@ -384,20 +483,53 @@ class _HomeState extends State<Home> {
                         Color.fromARGB(255, 236, 247, 144),
                       ]),
                 ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                child: Row(
                   children: [
-                    Text(
-                      'Body',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20,
-                        color: Colors.white,
+                    Padding(
+                      padding: const EdgeInsets.only(left: 8),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+                            width: 80,
+                            child: Image.asset(
+                              'assets/images/body/body.png',
+                              height: 50,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
-                    Text(
-                      '10 exams',
-                      style: TextStyle(color: Colors.white),
+                    Expanded(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'Body',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20,
+                              color: Colors.white,
+                            ),
+                          ),
+                          Text(
+                            '10 exams',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(right: 8),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Image.asset(
+                            'assets/icons/playbutton.png',
+                            height: 50,
+                          )
+                        ],
+                      ),
                     ),
                   ],
                 ),

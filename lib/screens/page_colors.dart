@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:appnedic/screens/quiz/home.dart';
+import 'package:appnedic/screens/home.dart';
 
-class PageJob extends StatefulWidget {
-  const PageJob({super.key});
+class PageColor extends StatefulWidget {
+  const PageColor({super.key});
 
   @override
-  State<PageJob> createState() => _PageJobState();
+  State<PageColor> createState() => _PageColorState();
 }
 
-class _PageJobState extends State<PageJob> {
+class _PageColorState extends State<PageColor> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,7 +31,7 @@ class _PageJobState extends State<PageJob> {
           icon: Icon(Icons.chevron_left),
         ),
         title: Text(
-          'Occupation',
+          'Color',
           style: GoogleFonts.roboto(
             fontWeight: FontWeight.bold,
             color: Colors.white,
@@ -42,28 +42,25 @@ class _PageJobState extends State<PageJob> {
       ),
       body: ListView(
         children: <Widget>[
-          getPageContainer(0, 'artis.png', 'Artis',
-              'อาร์-ทิสทฺ \nนักศิลปะ, จิตรกร', Colors.redAccent.shade100),
-          getPageContainer(1, 'astronaut.png', 'Astronaut',
-              'แอส-โทรนอท \nนักบินอวกาศ', Colors.blueAccent.shade700),
-          getPageContainer(2, 'aviator.png', 'Aviator',
-              'เอวิเอเทอะ \nกัปตันเครื่องบิน', Colors.blueAccent.shade200),
           getPageContainer(
-              3, 'chef.png', 'Chef', 'เชฟ \nพ่อครัว', Colors.yellow.shade600),
-          getPageContainer(4, 'doctor.png', 'Doctor', 'ดอคเทอะ \nแพทย์',
-              Colors.deepOrangeAccent.shade200),
-          getPageContainer(5, 'farmer.png', 'Farmer', 'ฟาร์มเมอะ \nชาวนา',
-              Colors.greenAccent.shade400),
-          getPageContainer(6, 'nurse.png', 'Nurse', 'เนิร์ช \nพยาบาล',
+              0, 'red.png', 'Red', 'เรด \nสีแดง', Colors.redAccent.shade400),
+          getPageContainer(
+              1, 'orange.png', 'Orange', 'อ๊อ-ริน \nสีส้ม', Colors.orange),
+          getPageContainer(2, 'yellow.png', 'Yellow', 'เย็ล-โล \nสีเหลือง',
+              Colors.yellow.shade400),
+          getPageContainer(
+              3, 'green.png', 'Green', 'กรีน \nสีเขียว', Colors.green.shade500),
+          getPageContainer(4, 'purple.png', 'Purple', 'เพ๊อ-เพิล \nสีม่วง',
+              Colors.purple.shade400),
+          getPageContainer(5, 'pink.png', 'Pink', 'พิงค์ \nสีชทพู',
               Colors.pinkAccent.shade100),
-          getPageContainer(7, 'teacher.png', 'Teacher', 'ทีเชอะ \nครู, อสจาร์ย',
-              Colors.blueGrey.shade200),
-          getPageContainer(8, 'police.png', 'Poilce', 'โพลีส \nตำรวจ',
-              Colors.brown.shade400),
-          getPageContainer(9, 'programmer.png', 'Programmer',
-              'โพรแกรมเมอะ \nโปรแกรมเมอร์', Colors.grey.shade800),
-          getPageContainer(10, 'photographer.png', 'Photographer',
-              'ฟะทอก-ระเฟอะ \nช่างถ่ายรูป', Colors.purpleAccent.shade100),
+          getPageContainer(6, 'blue.png', 'Blue', 'บลู \nสีน้ำเงิน,ฟ้า',
+              Colors.blueAccent.shade200),
+          getPageContainer(7, 'gray.png', 'Gray', 'เกร \nสีเทา', Colors.grey),
+          getPageContainer(
+              8, 'white.png', 'White', 'ไวท์ \nสีขาว', Colors.white),
+          getPageContainer(9, 'black.png', 'Black', 'แบล็ค \nสีดำ',
+              Color.fromARGB(255, 36, 35, 35)),
         ],
       ),
     );
@@ -77,7 +74,7 @@ class _PageJobState extends State<PageJob> {
         borderRadius: BorderRadius.all(Radius.circular(12)),
         color: colorx,
       ),
-      margin: EdgeInsets.only(left: 60, right: 15, top: 25),
+      margin: EdgeInsets.only(left: 50, right: 15, top: 25),
       child: Stack(
         children: <Widget>[
           Positioned(
@@ -85,7 +82,7 @@ class _PageJobState extends State<PageJob> {
             child: Padding(
               padding: const EdgeInsets.all(20),
               child: Image(
-                image: AssetImage('assets/images/job/$imgName'), //image
+                image: AssetImage('assets/images/color/$imgName'), //image
                 height: MediaQuery.of(context).size.height / 4.5,
               ),
             ),
@@ -100,12 +97,11 @@ class _PageJobState extends State<PageJob> {
                         title, //title ชื่อ
                         style: GoogleFonts.roboto(
                           fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                          fontSize: 30,
+                          color: Colors.blueGrey.shade500,
+                          fontSize: 36,
                         ),
                       ),
-                      margin: EdgeInsets.only(
-                          left: 90, top: 20), //only(left: 100, top: 20)
+                      margin: EdgeInsets.only(left: 150, top: 20),
                     ),
                   ],
                 ),
@@ -114,8 +110,8 @@ class _PageJobState extends State<PageJob> {
                     subtext, //subtext คำแปล ความหมาย
                     style: GoogleFonts.roboto(
                       fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                      fontSize: 25,
+                      color: Colors.yellow.shade700,
+                      fontSize: 30,
                     ),
                   ),
                   margin: EdgeInsets.only(left: 69, top: 15),

@@ -1,13 +1,12 @@
-import 'package:appnedic/screens/quiz/home.dart';
-import 'package:appnedic/screens/splashscreen.dart';
+import 'package:appnedic/screens/home.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter/material.dart';
 
 Future main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-
-  await Future.delayed(const Duration(seconds: 10));
-
+  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   runApp(MyApp());
+  FlutterNativeSplash.remove();
 }
 
 class MyApp extends StatelessWidget {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:appnedic/screens/quiz/home.dart';
+import 'package:appnedic/screens/home.dart';
 
 class PageBody extends StatefulWidget {
   const PageBody({super.key});
