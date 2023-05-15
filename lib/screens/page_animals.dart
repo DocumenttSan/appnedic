@@ -24,7 +24,7 @@ class _PageAnimalsState extends State<PageAnimals> {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => const Home(), //เปลี่ยน
+                builder: (context) => const Home(),
               ),
             );
           },

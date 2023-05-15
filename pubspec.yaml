@@ -53,12 +53,8 @@ dev_dependencies:
 
 flutter_native_splash:
   background_image: "assets/images/splash.png"
-  image: assets/images/splash.png
   android: true
   ios: true
-flutter_launcher_icons:
-  android: "launcher_icon"
-  image_path: "assets/icon/splash.png"
 
 
 

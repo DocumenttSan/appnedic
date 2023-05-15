@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:appnedic/screens/quiz/finish_quiz.dart';
-import 'package:appnedic/screens/quiz/animal_qiz_model.dart';
 
 class LetterQuiz extends StatefulWidget {
   const LetterQuiz({Key? key}) : super(key: key);
@@ -10,18 +9,20 @@ class LetterQuiz extends StatefulWidget {
 }
 
 class Quiz {
-  String que;
-  List<String> ans;
-  String rightAns;
+  String que; //Question
+  int queHasImg; //ถ้ามีรูป กด1 ถ้าไม่มี กด0
+  String imageQue; //ใส่ที่อยู่ของรูป คำถาม
+  List<String> ans; //ช้อยส์4ข้อ ใส่แบบนี้นะ ['1','2','3','4']
+  int ansHasImg; //ถ้ามีรูป กด1 ถ้าไม่มี กด0
+  List<String> imageAns; //ใส่ที่อยู่ของรูป ช้อยส์
+  String rightAns; //คำตอบที่ถูกต้อง
 
-  Quiz(this.que, this.ans, this.rightAns);
+  Quiz(this.que, this.queHasImg, this.imageQue, this.ans, this.ansHasImg,
+      this.imageAns, this.rightAns);
 }
 
 var queList = [
-  Quiz("What is 2 + 2?", ['4', '6', '2', '3'], '4'),
-  Quiz("Flutter use for conding?",
-      ['Web Apps', 'Mobile Apps', 'Desktop', 'All of Above'], 'All of Above'),
-  Quiz('Dart used with ?', ['Java', 'PHP', 'Flutter', 'Pyhton'], 'Flutter')
+  Quiz("", 0, '', [], 1, [], ''), //ที่ใส่คำถามแต่ละข้อ
 ];
 
 class _HomeState extends State<LetterQuiz> {
@@ -37,15 +38,6 @@ class _HomeState extends State<LetterQuiz> {
   String img_tick = 'assets/images/check.png';
   String img_worng = 'assets/images/close.png';
 
-  _title() {
-    return Text(
-      'Welcom to Quiz Game',
-      style: TextStyle(
-        fontSize: 22,
-      ),
-    );
-  }
-
   _scoreText() {
     return Text(
       'Total right Question $rightAnsScore / $_totalQue',
@@ -53,68 +45,150 @@ class _HomeState extends State<LetterQuiz> {
     );
   }
 
-  _qustionCard(qustion) {
-    return Card(
-      child: Padding(
-        padding: const EdgeInsets.all(10.0),
-        child: Text(
-          '(${_currentQue + 1}) $qustion',
-          style: TextStyle(
-            fontSize: 28,
-            color: Colors.blue,
+  _qustionCard(question, hasimg, image) {
+    if (hasimg == 0) {
+      return Card(
+        child: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Column(
+            children: [
+              Text(
+                '(${_currentQue + 1}) $question',
+                style: TextStyle(
+                  fontSize: 28,
+                  color: Colors.blue,
+                ),
+              ),
+            ],
           ),
         ),
-      ),
-    );
+      );
+    } else {
+      return Card(
+        child: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Column(
+            children: [
+              Text(
+                '(${_currentQue + 1}) $question',
+                style: TextStyle(
+                  fontSize: 28,
+                  color: Colors.blue,
+                ),
+              ),
+              Image.asset(
+                '$image',
+                width: 100,
+                height: 100,
+              ),
+            ],
+          ),
+        ),
+      );
+    }
   }
 
-  _ansBtn(ans, action, rightAns) {
-    return ElevatedButton(
-      style: ElevatedButton.styleFrom(
-        backgroundColor: Colors.white,
-      ),
-      onPressed: isClicked
-          ? null
-          : nextisClick
-              ? null
-              : () {
-                  setState(() {
-                    isClicked = true;
-                    nextisClick = false;
-                  });
-                  if (ans == rightAns) {
-                    rightAnsScore++;
-                  }
-                },
-      child: Padding(
-        padding: const EdgeInsets.all(10.0),
-        child: Row(
-          children: [
-            Text(
-              '$ans',
-              style: TextStyle(
-                fontSize: 20,
-                color: Colors.black,
-              ),
-            ),
-            Spacer(),
-            isClicked
-                ? Container(
-                    height: 20,
-                    width: 20,
-                    child: rightAns == ans
-                        ? Image.asset(
-                            img_tick,
-                          )
-                        : Image.asset(
-                            img_worng,
-                          ),
-                  )
-                : Container(),
-          ],
+  _ansBtn(ans, hasimg, imgans, action, rightAns) {
+    if (hasimg == 0) {
+      return ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          backgroundColor: Colors.white,
         ),
-      ),
-    );
+        onPressed: isClicked
+            ? null
+            : nextisClick
+                ? null
+                : () {
+                    setState(() {
+                      isClicked = true;
+                      nextisClick = false;
+                    });
+                    if (ans == rightAns) {
+                      rightAnsScore++;
+                    }
+                  },
+        child: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Row(
+            children: [
+              Text(
+                '$ans',
+                style: TextStyle(
+                  fontSize: 20,
+                  color: Colors.black,
+                ),
+              ),
+              Spacer(),
+              isClicked
+                  ? Container(
+                      height: 20,
+                      width: 20,
+                      child: rightAns == ans
+                          ? Image.asset(
+                              img_tick,
+                            )
+                          : Image.asset(
+                              img_worng,
+                            ),
+                    )
+                  : Container(),
+            ],
+          ),
+        ),
+      );
+    } else {
+      return ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          backgroundColor: Colors.white,
+        ),
+        onPressed: isClicked
+            ? null
+            : nextisClick
+                ? null
+                : () {
+                    setState(() {
+                      isClicked = true;
+                      nextisClick = false;
+                    });
+                    if (ans == rightAns) {
+                      rightAnsScore++;
+                    }
+                  },
+        child: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Row(
+            children: [
+              Text(
+                '$ans',
+                style: TextStyle(
+                  fontSize: 20,
+                  color: Colors.black,
+                ),
+              ),
+              Image.asset(
+                '$imgans',
+                width: 100,
+                height: 100,
+              ),
+              Spacer(),
+              isClicked
+                  ? Container(
+                      height: 20,
+                      width: 20,
+                      child: rightAns == ans
+                          ? Image.asset(
+                              img_tick,
+                            )
+                          : Image.asset(
+                              img_worng,
+                            ),
+                    )
+                  : Container(),
+            ],
+          ),
+        ),
+      );
+    }
   }
 
   _changeQue() {
@@ -124,17 +198,6 @@ class _HomeState extends State<LetterQuiz> {
       isClicked = false;
       nextisClick = false;
       _currentQue++;
-      _currentQuiz = queList[_currentQue];
-      setState(() {});
-    }
-  }
-
-  _changePrevQue() {
-    if (_currentQue == 0) {
-    } else {
-      isClicked = true;
-      nextisClick = true;
-      _currentQue--;
       _currentQuiz = queList[_currentQue];
       setState(() {});
     }
@@ -164,15 +227,6 @@ class _HomeState extends State<LetterQuiz> {
     }
   }
 
-  _previousBtn() {
-    return TextButton(
-      onPressed: () {
-        _changePrevQue();
-      },
-      child: Text('Previous Question'),
-    );
-  }
-
   @override
   void initState() {
     _totalQue = queList.length;
@@ -185,14 +239,13 @@ class _HomeState extends State<LetterQuiz> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Simple Quiz Game'),
+        title: Text('Animals Quiz'),
       ),
       body: Container(
         padding: EdgeInsets.all(10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            _title(),
             SizedBox(
               height: 100,
             ),
@@ -200,19 +253,23 @@ class _HomeState extends State<LetterQuiz> {
             SizedBox(
               height: 10,
             ),
-            _qustionCard(_currentQuiz.que),
+            _qustionCard(_currentQuiz.que, _currentQuiz.queHasImg,
+                _currentQuiz.imageQue),
             SizedBox(
               height: 60,
             ),
-            _ansBtn(_currentQuiz.ans[0], () {}, _currentQuiz.rightAns),
-            _ansBtn(_currentQuiz.ans[1], () {}, _currentQuiz.rightAns),
-            _ansBtn(_currentQuiz.ans[2], () {}, _currentQuiz.rightAns),
-            _ansBtn(_currentQuiz.ans[3], () {}, _currentQuiz.rightAns),
+            _ansBtn(_currentQuiz.ans[0], _currentQuiz.ansHasImg,
+                _currentQuiz.imageAns[0], () {}, _currentQuiz.rightAns),
+            _ansBtn(_currentQuiz.ans[1], _currentQuiz.ansHasImg,
+                _currentQuiz.imageAns[1], () {}, _currentQuiz.rightAns),
+            _ansBtn(_currentQuiz.ans[2], _currentQuiz.ansHasImg,
+                _currentQuiz.imageAns[2], () {}, _currentQuiz.rightAns),
+            _ansBtn(_currentQuiz.ans[3], _currentQuiz.ansHasImg,
+                _currentQuiz.imageAns[3], () {}, _currentQuiz.rightAns),
             Spacer(),
             Row(
               children: [
                 _changeButton(),
-                _previousBtn(),
               ],
             )
           ],

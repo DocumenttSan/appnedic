@@ -16,16 +16,18 @@ class _FinishQuizState extends State<FinishQuiz> {
     return Scaffold(
       backgroundColor: Colors.blue,
       body: SafeArea(
-        child: Center(
-          child: Container(
-            child: ElevatedButton(
-              onPressed: () {
-                Navigator.pushReplacement(
-                    context, MaterialPageRoute(builder: (context) => Home()));
-              },
-              child: Text('Back to Home'),
+        child: Column(
+          children: [
+            Container(
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.pushReplacement(
+                      context, MaterialPageRoute(builder: (context) => Home()));
+                },
+                child: Text('Back to Home'),
+              ),
             ),
-          ),
+          ],
         ),
       ),
     );
